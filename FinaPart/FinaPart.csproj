@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2A0AA3C6-8B66-4D25-9F67-93338D877A2F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FinaPart</RootNamespace>
+    <AssemblyName>FinaPart</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enums\EnumSaleTypes.cs" />
+    <Compile Include="FinaLogic.cs" />
+    <Compile Include="IFinaLogic.cs" />
+    <Compile Include="Models\Car.cs" />
+    <Compile Include="Models\Companies.cs" />
+    <Compile Include="Models\ContragentContact.cs" />
+    <Compile Include="Models\Contragents.cs" />
+    <Compile Include="Models\Currencies.cs" />
+    <Compile Include="Models\Entries.cs" />
+    <Compile Include="Models\GeneralDocs.cs" />
+    <Compile Include="Models\GroupProduct.cs" />
+    <Compile Include="Models\Params.cs" />
+    <Compile Include="Models\ProductBarCode.cs" />
+    <Compile Include="Models\ProductCancel.cs" />
+    <Compile Include="Models\ProductImages.cs" />
+    <Compile Include="Models\ProductShippingFlow.cs" />
+    <Compile Include="RSService.cs" />
+    <Compile Include="Service References\RSServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WaybillServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\GeneralViewModel.cs" />
+    <Compile Include="ViewModels\ProductMoveListViewModel.cs" />
+    <Compile Include="Models\ProductOut.cs" />
+    <Compile Include="Models\ProductPrices.cs" />
+    <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\ProductsFlow.cs" />
+    <Compile Include="Models\ProductMove.cs" />
+    <Compile Include="Models\ProductShipping.cs" />
+    <Compile Include="ViewModels\ProductShippingFlowListView.cs" />
+    <Compile Include="ViewModels\ProductShippingListViewModel.cs" />
+    <Compile Include="ViewModels\ProductViewModel.cs" />
+    <Compile Include="Models\Staffs.cs" />
+    <Compile Include="Models\Store.cs" />
+    <Compile Include="Models\SubContragent.cs" />
+    <Compile Include="Models\Units.cs" />
+    <Compile Include="Models\Users.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\DBContext.cs" />
+    <Compile Include="Utils\FinaContext.cs" />
+    <Compile Include="Utils\FinaContextExtensions.cs" />
+    <Compile Include="ViewModels\ProductMoveViewModel.cs" />
+    <Compile Include="ViewModels\ProductRestModel.cs" />
+    <Compile Include="ViewModels\ProductsFlowViewModel.cs" />
+    <Compile Include="ViewModels\ProductShippingViewModel.cs" />
+    <Compile Include="ViewModels\RSWaybillItem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
+    <None Include="Properties\DataSources\System.Xml.Linq.XElement.datasource" />
+    <None Include="Service References\RSServiceReference\FinaPart.RSServiceReference.chekResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RSServiceReference\FinaPart.RSServiceReference.get_buyer_filter_countResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RSServiceReference\FinaPart.RSServiceReference.get_invoiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RSServiceReference\FinaPart.RSServiceReference.get_invoice_requestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RSServiceReference\FinaPart.RSServiceReference.get_makoreqtirebeliResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RSServiceReference\FinaPart.RSServiceReference.get_seller_filter_countResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RSServiceReference\FinaPart.RSServiceReference.get_ser_usersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RSServiceReference\FinaPart.RSServiceReference.get_tin_from_un_idResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RSServiceReference\FinaPart.RSServiceReference.get_un_id_from_tinResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RSServiceReference\FinaPart.RSServiceReference.g_invoiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RSServiceReference\FinaPart.RSServiceReference.k_invoiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RSServiceReference\FinaPart.RSServiceReference.save_invoiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RSServiceReference\FinaPart.RSServiceReference.save_invoice_descResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RSServiceReference\ntosservice.wsdl" />
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.chek_service_userResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.close_waybillResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.close_waybill_transporterResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.close_waybill_vdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.confirm_waybillResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.create_service_userResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.delete_bar_codeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.delete_car_numbersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.delete_waybill_tamplateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.del_waybillResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_adjusted_waybillResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_adjusted_waybillsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_akciz_codesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_bar_codesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_buyer_waybilll_goods_listResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_buyer_waybillsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_buyer_waybills_exResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_car_numbersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_c_waybillResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_error_codesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_name_from_tinResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_payer_type_from_un_idResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_print_pdfResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_server_timeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_service_usersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_tin_from_un_idResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_transporter_waybillsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_trans_typesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_waybillResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_waybillsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_waybills_exResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_waybill_by_numberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_waybill_goods_listResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_waybill_tamplateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_waybill_tamplatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_waybill_typesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_waybill_unitsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.get_wood_typesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.is_vat_payerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.is_vat_payer_tinResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.ref_waybillResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.ref_waybill_vdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.reject_waybillResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.save_bar_codeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.save_car_numbersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.save_invoiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.save_waybillResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.save_waybill_tamplateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.save_waybill_transporterResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.send_waybillResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.send_waybill_transporterResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.send_waybil_vdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.update_service_userResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\FinaPart.WaybillServiceReference.what_is_my_ipResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WaybillServiceReference\WayBillService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\RSServiceReference\" />
+    <WCFMetadataStorage Include="Service References\WaybillServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RSServiceReference\ntosservice.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RSServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RSServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RSServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WaybillServiceReference\WayBillService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WaybillServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WaybillServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WaybillServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
